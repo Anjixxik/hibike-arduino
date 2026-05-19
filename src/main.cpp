@@ -15,6 +15,21 @@ struct Song {
   int length;
 };
 
+const int melody0[] = {
+  NOTE_C4, NOTE_DS4, NOTE_F4, NOTE_DS4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_AS4, NOTE_GS4, NOTE_G4, NOTE_F4, NOTE_G4,
+  NOTE_G4, NOTE_AS4, NOTE_C5, NOTE_F4, NOTE_DS4, NOTE_D4, NOTE_D4, NOTE_C4, NOTE_D4, NOTE_F4, NOTE_DS4, NOTE_DS4,
+  NOTE_C4, NOTE_DS4, NOTE_F4, NOTE_DS4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_AS4, NOTE_GS4, NOTE_G4, NOTE_F4, NOTE_G4,
+  NOTE_G4, NOTE_AS4, NOTE_C5, NOTE_F4, NOTE_DS4, NOTE_AS4, NOTE_AS4, NOTE_G4, NOTE_AS4, NOTE_AS4, NOTE_C5
+
+};
+
+const int durations0[] = {  
+  2,2,2,3,4,4,4,4,4,8,4,2,
+  2,2,2,3,4,4,4,4,4,8,4,2,
+  2,2,2,3,4,4,4,4,4,8,4,2,
+  2,2,2,3,4,4,4,4,4,2,1
+};
+
 const int melody1[] = {
   NOTE_AS5, NOTE_C6, NOTE_AS5, NOTE_A5, NOTE_G5, NOTE_C6,
   NOTE_AS5, NOTE_A5, NOTE_G5, NOTE_G5,
@@ -41,7 +56,7 @@ const int durations1[] = {
   //6,6,6,6,6,6,6,6,6,6,6,6,
 };
 
-const int melody0[] = {
+const int melody4[] = {
   NOTE_DS5, NOTE_GS5, NOTE_CS5, NOTE_B4, NOTE_E5, NOTE_DS5, 
   NOTE_B4, NOTE_CS5, NOTE_B4, NOTE_CS5, NOTE_B4, NOTE_CS5, NOTE_B4, NOTE_CS5, NOTE_B4, NOTE_CS5, NOTE_DS5,
   NOTE_B4, NOTE_B4, NOTE_B4, NOTE_B4, NOTE_CS5, NOTE_B4, NOTE_CS5, NOTE_DS5, NOTE_E5, NOTE_DS5,
@@ -55,7 +70,7 @@ const int melody0[] = {
   NOTE_AS5, NOTE_GS5, NOTE_FS5, NOTE_GS5,
 };
 
-const int durations0[] = {
+const int durations4[] = {
   2,2,1,2,2,1,
   8,8,8,8,8,8,8,8,8,8,4,
   4,8,8,8,4,4,4,4,2,2,
@@ -216,12 +231,14 @@ const Song songs[] = {
   //Pirates of the Caribbean theme
   {melody2, durations2, sizeof(melody2) / sizeof(int)},
   //test
-  {melody3, durations3, sizeof(melody3) / sizeof(int)}
+  {melody3, durations3, sizeof(melody3) / sizeof(int)},
+  //test
+  {melody4, durations4, sizeof(melody4) / sizeof(int)},
 };
 
 void waitRelease(int pin){
   while(digitalRead(pin)==HIGH);
-  delay(50); // debounce
+  delay(5); // debounce
 }
 
 void setup()
